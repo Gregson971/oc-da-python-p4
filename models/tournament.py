@@ -1,16 +1,19 @@
 from tinydb import TinyDB, Query
 
+from models.round import RoundService
+from models.player import PlayerService
+
 
 class Tournament:
     """Tournament class"""
 
-    def __init__(self, name, location, description=''):
+    def __init__(self, name, location, players: list, rounds: list, description=''):
         """Tournament constructor"""
         self.name = name
         self.location = location
         self.description = description
-        self.rounds = []
-        self.players = []
+        self.rounds = rounds
+        self.players = players
         self.start_date = None
         self.end_date = None
         self.rounds_total = 4
@@ -27,17 +30,29 @@ class TournamentService:
     def __init__(self, tournament):
         """TournamentService constructor, used to interact with the database"""
         self.tournament = tournament
-        self.tournaments_bd = TinyDB("data/tournaments/tournaments.json")
+        self.tournaments_bd = TinyDB(
+            "data/tournaments/tournaments.json", sort_keys=True, indent=4, separators=(',', ': ')
+        )
         self.serialized_tournament = self.get_serialized_tournament()
 
     def get_serialized_tournament(self):
         """Method to get a serialized tournament"""
+        serialized_players = []
+        for player in self.tournament.players:
+            serialized_player = PlayerService(player).get_serialized_player()
+            serialized_players.append(serialized_player)
+
+        serialized_rounds = []
+        for round in self.tournament.rounds:
+            serialized_round = RoundService(round).get_serialized_round()
+            serialized_rounds.append(serialized_round)
+
         return {
             "name": self.tournament.name,
             "location": self.tournament.location,
             "description": self.tournament.description,
-            "rounds": self.tournament.rounds,
-            "players": self.tournament.players,
+            "rounds": serialized_rounds,
+            "players": serialized_players,
             "start_date": self.tournament.start_date,
             "end_date": self.tournament.end_date,
             "rounds_total": self.tournament.rounds_total,

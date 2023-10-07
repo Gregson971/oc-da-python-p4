@@ -1,0 +1,26 @@
+{
+    "_default": {
+        "1": {
+            "birthdate": "01/01/2000",
+            "chess_id": "AB12345",
+            "first_name": "Jean",
+            "full_name": "Jean Dupont",
+            "last_name": "Dupont",
+            "opponents": [],
+            "rank": 0,
+            "score": 0,
+            "tournament_score": 0
+        },
+        "2": {
+            "birthdate": "15/04/1986",
+            "chess_id": "CD67890",
+            "first_name": "John",
+            "full_name": "John Doe",
+            "last_name": "Doe",
+            "opponents": [],
+            "rank": 0,
+            "score": 0,
+            "tournament_score": 0
+        }
+    }
+}

@@ -4,7 +4,7 @@ import random
 class Match:
     """Match model"""
 
-    def __init__(self, players_pair):
+    def __init__(self, players_pair: list):
         """Match constructor"""
         self.player1 = players_pair[0]
         self.player1_score = 0
@@ -15,11 +15,22 @@ class Match:
 
     def __repr__(self):
         """Better representation of a match object"""
-        return f"{self.players}"
+        return f"Match: {self.player1} vs {self.player2}"
 
 
 class MatchService:
     """MatchService class, used to interact with the data"""
+
+    def __init__(self, match):
+        """MatchService constructor, used to interact with the data"""
+        self.match = match
+
+    def get_serialized_match(self):
+        """Method to get a serialized match"""
+        return [
+            [self.match.player1.full_name, self.match.player1_score],
+            [self.match.player2.full_name, self.match.player2_score],
+        ]
 
     def assign_color(self):
         """Assign color to players"""
@@ -33,4 +44,10 @@ class MatchService:
     def get_match(self):
         """Get match players pair"""
         self.assign_color()
+        return ([self.match.player1.full_name, self.player1_score], [self.player2.full_name, self.player2_score])
+
+    def update_match(self, player1_score, player2_score):
+        """Update match score"""
+        self.player1_score = player1_score
+        self.player2_score = player2_score
         return ([self.player1, self.player1_score], [self.player2, self.player2_score])

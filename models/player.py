@@ -27,7 +27,7 @@ class PlayerService:
     def __init__(self, player):
         """PlayerService constructor, used to interact with the database"""
         self.player = player
-        self.players_bd = TinyDB("data/tournaments/players.json")
+        self.players_bd = TinyDB("data/tournaments/players.json", sort_keys=True, indent=4, separators=(',', ': '))
         self.serialized_player = self.get_serialized_player()
 
     def get_serialized_player(self):
