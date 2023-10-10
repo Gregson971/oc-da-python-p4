@@ -4,12 +4,12 @@ import random
 class Match:
     """Match model"""
 
-    def __init__(self, players_pair: list):
+    def __init__(self, player_pairs):
         """Match constructor"""
-        self.player1 = players_pair[0]
+        self.player1 = player_pairs[0]
         self.player1_score = 0
         self.player1_color = None
-        self.player2 = players_pair[1]
+        self.player2 = player_pairs[1]
         self.player2_score = 0
         self.player2_color = None
 
