@@ -1,26 +1,44 @@
 {
     "_default": {
         "1": {
-            "birthdate": "01/01/2000",
-            "chess_id": "AB12345",
-            "first_name": "Jean",
-            "full_name": "Jean Dupont",
-            "last_name": "Dupont",
+            "birthdate": "01-01-1998",
+            "chess_id": "AZ12345",
+            "first_name": "Bob",
+            "full_name": "Bob Leponge",
+            "last_name": "Leponge",
             "opponents": [],
             "rank": 0,
-            "score": 0,
-            "tournament_score": 0
+            "score": 0
         },
         "2": {
-            "birthdate": "15/04/1986",
-            "chess_id": "CD67890",
+            "birthdate": "01-02-1998",
+            "chess_id": "AS12345",
             "first_name": "John",
             "full_name": "John Doe",
             "last_name": "Doe",
             "opponents": [],
             "rank": 0,
-            "score": 0,
-            "tournament_score": 0
+            "score": 0
+        },
+        "3": {
+            "birthdate": "01-03-1998",
+            "chess_id": "AF12345",
+            "first_name": "Will",
+            "full_name": "Will Smith",
+            "last_name": "Smith",
+            "opponents": [],
+            "rank": 0,
+            "score": 0
+        },
+        "4": {
+            "birthdate": "01-04-1998",
+            "chess_id": "AG12345",
+            "first_name": "Jane",
+            "full_name": "Jane Doe",
+            "last_name": "Doe",
+            "opponents": [],
+            "rank": 0,
+            "score": 0
         }
     }
 }
