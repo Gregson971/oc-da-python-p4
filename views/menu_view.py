@@ -9,9 +9,8 @@ class MenuView:
             "-------------------------\n"
             "1. Create a tournament\n"
             "2. Load a tournament\n"
-            "3. Create a player\n"
-            "4. See reports\n"
-            "5. Exit\n"
+            "3. See reports\n"
+            "4. Exit\n"
             "-------------------------"
         )
         return input("Choice: ")
@@ -23,7 +22,8 @@ class MenuView:
             "What do you want to do?\n"
             "1. Create a player\n"
             "2. Load players\n"
-            "3. Save and quit\n"
+            "3. Start tournament\n"
+            "4. Save and quit\n"
             "-------------------------"
         )
         return input("Choice: ")
@@ -48,7 +48,7 @@ class MenuView:
     def display_start_round_choice(self):
         """Display start round choice"""
         print("-------------------------\n" "What do you want to do?\n" "-------------------------")
-        print("1. Start a round\n" "2. Load a round\n" "3. Save and quit\n" "-------------------------")
+        print("1. Start a round\n" "3. Save and quit\n" "-------------------------")
         return input("Choice: ")
 
     def display_round_winner(self, players):
@@ -65,36 +65,16 @@ class MenuView:
         )
         return input("Winning player: ")
 
-    def display_end_tournament(self):
-        """Display end tournament"""
-        print("-------------------------\n" "End a tournament\n" "Here is the results:\n" "-------------------------")
-
-    def display_load_tournament(self):
-        """Display load tournament"""
-        print("-------------------------\n" "Load a tournament\n" "-------------------------")
-
-    def display_start_tournament(self):
-        """Display start tournament"""
-        print("-------------------------\n" "Start a tournament\n" "-------------------------")
-
-    def display_report(self):
-        """Display report"""
-        print("-------------------------\n" "Report\n" "-------------------------")
-
-    def display_exit(self):
-        """Display exit"""
-        print("-------------------------\n" "Exit\n" "-------------------------")
-
-    def display_winner(self):
-        """Display winner"""
-        print("-------------------------")
-        print("Winner")
-        print("-------------------------")
-
-    def get_should_continue_adding_players(self):
-        """Get should continue adding players"""
-        choise = input("Do you want to add a player? (y/n): ")
-        if choise == "y":
-            return True
-        else:
-            return False
+    def display_report_choice(self):
+        """Display report choice"""
+        print("-------------------------\n" "What do you want to see?\n" "-------------------------")
+        print(
+            "1. Players in alphabetical order\n"
+            "2. Players in rank order\n"
+            "3. Tournaments list\n"
+            "4. Tournament details\n"
+            "5. Rounds and matches details by tournaments\n"
+            "6. Exit\n"
+            "-------------------------"
+        )
+        return input("Choice: ")
