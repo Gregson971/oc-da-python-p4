@@ -2,8 +2,10 @@ import sys
 
 from tabulate import tabulate
 
-from models.tournament import Tournament, TournamentService
-from models.player import PlayerService
+from models.tournament import Tournament
+
+from services.tournament_service import TournamentService
+from services.player_service import PlayerService
 
 from views.menu_view import MenuView
 

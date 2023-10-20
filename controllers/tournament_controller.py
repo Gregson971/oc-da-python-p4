@@ -1,11 +1,14 @@
 import sys
 from datetime import datetime
-from controllers.report_controller import ReportController
 
+from controllers.report_controller import ReportController
 from controllers.round_controller import RoundController
 from controllers.player_controller import PlayerController
 
-from models.tournament import Tournament, TournamentService
+from models.tournament import Tournament
+
+from services.tournament_service import TournamentService
+
 from views.menu_view import MenuView
 
 PLAYER_PER_MATCH = 2

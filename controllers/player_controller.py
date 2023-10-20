@@ -1,7 +1,9 @@
 from datetime import datetime
 
 from models.tournament import Tournament
-from models.player import Player, PlayerService
+from models.player import Player
+
+from services.player_service import PlayerService
 
 from views.menu_view import MenuView
 

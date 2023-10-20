@@ -1,10 +1,12 @@
 import sys
 from datetime import datetime
 
-from models.player import PlayerService
-from models.tournament import Tournament, TournamentService
+from models.tournament import Tournament
 from models.round import Round
 from models.match import Match
+
+from services.player_service import PlayerService
+from services.tournament_service import TournamentService
 
 from views.menu_view import MenuView
 
