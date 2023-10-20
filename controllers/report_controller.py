@@ -38,13 +38,13 @@ class ReportController:
         """Display the list of players"""
         players = PlayerService.get_all_players()
         sorted_players = sorted(players, key=lambda player: player["first_name"])
-        print(tabulate(sorted_players, headers="keys", tablefmt="fancy_grid"))
+        self.view.display_message(message=tabulate(sorted_players, headers="keys", tablefmt="fancy_grid"))
 
     def display_players_by_ranking(self):
         """Display the list of players"""
         players = PlayerService.get_all_players()
         sorted_players = sorted(players, key=lambda player: player["rank"])
-        print(tabulate(sorted_players, headers="keys", tablefmt="fancy_grid"))
+        self.view.display_message(message=tabulate(sorted_players, headers="keys", tablefmt="fancy_grid"))
 
     def display_tournaments_list(self):
         """Display the list of tournaments"""
@@ -53,19 +53,21 @@ class ReportController:
             {key: value for key, value in element.items() if key not in ['players', 'rounds']}
             for element in tournaments
         ]
-        print(tabulate(clean_tournaments, headers="keys", tablefmt="fancy_grid"))
+        self.view.display_message(message=tabulate(clean_tournaments, headers="keys", tablefmt="fancy_grid"))
 
     def display_tournament_details(self):
         """Display tournament details"""
-        user_input = input("Enter tournament name: ")
+        user_input = self.view.display_message(input_message="Enter tournament name: ")
         tournament = TournamentService.get_tournament(name=user_input)
         if tournament:
             deserialized_tournament = TournamentService.deserialize_tournament(tournament)
-            print(f"Tournament name : {deserialized_tournament.name}")
-            print(f"Start date : {deserialized_tournament.start_date}")
-            print(f"End date : {deserialized_tournament.end_date}")
+            self.view.display_message(
+                message=f"Tournament name : {deserialized_tournament.name}\n"
+                f"Start date : {deserialized_tournament.start_date}\n"
+                f"End date : {deserialized_tournament.end_date}\n"
+            )
         else:
-            print("Tournament not found.")
+            self.view.display_message(message="Tournament not found.")
 
     def display_rounds_and_matches_details_by_tournaments(self):
         """Display the list of tournaments"""
@@ -75,9 +77,9 @@ class ReportController:
             deserialized_tournament = TournamentService.deserialize_tournament(tournament)
             rounds = deserialized_tournament.rounds
             for round in rounds:
-                print(f"Round : {round['name']}")
+                self.view.display_message(message=f"Round : {round['name']}")
                 matches = round['matches']
                 for match in matches:
-                    print(f"Match : {match[0][0]} vs {match[1][0]}")
+                    self.view.display_message(message=f"Match : {match[0][0]} vs {match[1][0]}")
         else:
-            print("Tournament not found.")
+            self.view.display_message(message="Tournament not found.")

@@ -39,35 +39,43 @@ class TournamentController:
 
     def load_tournament(self):
         """Load a tournament from the database"""
-        user_input = input("Enter tournament name: ")
+        user_input = self.view.display_message(input_message="Enter tournament name: ")
         new_tournament = TournamentService.get_tournament(name=user_input)
 
         if not new_tournament:
-            print("Tournament not found.")
+            self.view.display_message(message="Tournament not found.")
             return
 
         self.tournament = TournamentService.deserialize_tournament(new_tournament)
 
-        print("Tournament loaded successfully.")
+        self.view.display_message(message="Tournament loaded successfully.")
 
         self.add_players()
 
     def start_tournament(self):
         """Start the tournament"""
-        print("-------------------------\n" "Start a tournament\n" "-------------------------")
+        self.view.display_message(
+            message="-------------------------\n" "Start a tournament\n" "-------------------------"
+        )
         self.tournament.start_date = datetime.now().strftime("%d-%m-%Y %H:%M")
-        print(f"START TOURNAMENT DATE: {self.tournament.start_date}")
+        self.view.display_message(message=f"START TOURNAMENT DATE: {self.tournament.start_date}")
 
         # Run rounds
         for i in range(self.tournament.rounds_total):
             RoundController(self.view, self.tournament).start_round(i)
 
         self.tournament.end_date = datetime.now().strftime("%d-%m-%Y %H:%M")
-        print(f"END DATE: {self.tournament.end_date}")
+        self.view.display_message(message=f"END TOURNAMENT DATE: {self.tournament.end_date}")
 
         TournamentService.update_tournament(self.tournament)
 
-        print("-------------------------\n" "End a tournament\n" "Here is the results:\n" "-------------------------")
+        self.view.display_message(
+            message="-------------------------\n"
+            "End a tournament\n"
+            "Here is the results:\n"
+            "-------------------------"
+        )
+
         ReportController(self.view, self.tournament).handle_reports()
 
     def add_players(self):
@@ -92,7 +100,7 @@ class TournamentController:
                     pass
 
             if len(self.tournament.players) == self.tournament.rounds_total * PLAYER_PER_MATCH:
-                print("All players have been added.")
+                self.view.display_message(message="All players have been added.")
                 self.start_tournament()
             else:
                 pass

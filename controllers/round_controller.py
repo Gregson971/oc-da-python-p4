@@ -30,18 +30,18 @@ class RoundController:
             round = Round(f"Round {round_number + 1}", matches)
             self.tournament.rounds.append(round)
 
-            print(f"CURRENT ROUND: {self.tournament.current_round}")
+            self.view.display_message(message=f"CURRENT ROUND: {self.tournament.current_round}")
 
             # Start round
             self.tournament.rounds[round_number].start_date = datetime.now().strftime("%d-%m-%Y %H:%M")
-            print(f"ROUND START DATE: {self.tournament.rounds[round_number].start_date}")
+            self.view.display_message(message=f"ROUND START DATE: {self.tournament.rounds[round_number].start_date}")
 
             for pair in players_pairs:
                 self.get_round_winner(pair)
 
             # End round
             self.tournament.rounds[round_number].end_date = datetime.now().strftime("%d-%m-%Y %H:%M")
-            print(f"ROUND END DATE: {self.tournament.rounds[round_number].end_date}")
+            self.view.display_message(message=f"ROUND END DATE: {self.tournament.rounds[round_number].end_date}")
 
             self.tournament.current_round += 1
 
@@ -58,7 +58,7 @@ class RoundController:
             return list(zip(sorted_players[::2], sorted_players[1::2]))
 
         elif self.tournament.current_round > self.tournament.rounds_total:
-            print(f"{self.tournament.name} is over.")
+            self.view.display_message(message=f"{self.tournament.name} is over.")
             sys.exit()
 
         # Other rounds

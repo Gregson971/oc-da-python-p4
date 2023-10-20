@@ -30,7 +30,7 @@ class MenuView:
 
     def create_tournament(self):
         """Display create tournament"""
-        print("-------------------------\n" "Create a tournament\n" "-------------------------")
+        print("-------------------------\n" "Create a tournament\n" "-------------------------\n")
         name = input("Name: ")
         location = input("Location: ")
         description = input("Description: ")
@@ -38,7 +38,7 @@ class MenuView:
 
     def create_player(self):
         """Display create player"""
-        print("-------------------------\n" "Create a player\n" "-------------------------")
+        print("-------------------------\n" "Create a player\n" "-------------------------\n")
         first_name = input("First name: ")
         last_name = input("Last name: ")
         birthdate = input("Birthdate: ")
@@ -47,8 +47,14 @@ class MenuView:
 
     def display_start_round_choice(self):
         """Display start round choice"""
-        print("-------------------------\n" "What do you want to do?\n" "-------------------------")
-        print("1. Start a round\n" "3. Save and quit\n" "-------------------------")
+        print(
+            "-------------------------\n"
+            "What do you want to do?\n"
+            "-------------------------\n"
+            "1. Start a round\n"
+            "3. Save and quit\n"
+            "-------------------------"
+        )
         return input("Choice: ")
 
     def display_round_winner(self, players):
@@ -67,8 +73,10 @@ class MenuView:
 
     def display_report_choice(self):
         """Display report choice"""
-        print("-------------------------\n" "What do you want to see?\n" "-------------------------")
         print(
+            "-------------------------\n"
+            "What do you want to see?\n"
+            "-------------------------\n"
             "1. Players in alphabetical order\n"
             "2. Players in rank order\n"
             "3. Tournaments list\n"
@@ -78,3 +86,10 @@ class MenuView:
             "-------------------------"
         )
         return input("Choice: ")
+
+    def display_message(self, message=None, input_message=None):
+        """Display message"""
+        if input_message:
+            return input(f"{input_message}")
+        else:
+            print(f"{message}")
