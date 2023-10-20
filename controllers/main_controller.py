@@ -1,7 +1,6 @@
 import sys
 
 from controllers.tournament_controller import TournamentController
-from controllers.player_controller import PlayerController
 from controllers.report_controller import ReportController
 
 from views.menu_view import MenuView

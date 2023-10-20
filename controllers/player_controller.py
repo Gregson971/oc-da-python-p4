@@ -1,3 +1,5 @@
+from datetime import datetime
+
 from models.tournament import Tournament
 from models.player import Player, PlayerService
 
@@ -14,8 +16,34 @@ class PlayerController:
         player_informations = self.view.create_player()
         first_name = player_informations["first_name"]
         last_name = player_informations["last_name"]
-        birthdate = player_informations["birthdate"]
-        chess_id = player_informations["chess_id"]
+
+        birthdate = None
+        while not birthdate:
+            birthdate_string = player_informations["birthdate"]
+            try:
+                datetime.strptime(birthdate_string, "%d-%m-%Y")
+                birthdate = birthdate_string
+                if len(birthdate) != 10 or birthdate[2] != "-" or birthdate[5] != "-":
+                    print("Invalid birthdate format. Please use DD-MM-YYYY format.")
+                    birthdate = None
+            except ValueError:
+                print("Please enter a valid date in format DD-MM-YYYY.")
+                break
+
+        chess_id = None
+        while not chess_id:
+            chess_id_str = player_informations["chess_id"]
+            if len(chess_id_str) != 7:
+                print("Invalid chess ID format. Please use 2 letters followed by 5 digits.")
+                break
+            if not chess_id_str[:2].isalpha() or not chess_id_str[2:].isdigit():
+                print("Invalid chess ID format. Please use 2 letters followed by 5 digits.")
+                break
+            chess_id = chess_id_str
+
+        if not first_name or not last_name or not birthdate or not chess_id:
+            print("Please enter valid informations.")
+            return
 
         new_player = Player(first_name, last_name, birthdate, chess_id)
         self.tournament.players.append(new_player)

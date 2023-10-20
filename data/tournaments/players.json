@@ -6,9 +6,14 @@
             "first_name": "Bob",
             "full_name": "Bob Leponge",
             "last_name": "Leponge",
-            "opponents": [],
-            "rank": 0,
-            "score": 0
+            "opponents": [
+                "Jane Doe",
+                "Will Smith",
+                "L\u00e9a Durand",
+                "Alex Dupuis"
+            ],
+            "rank": 5,
+            "score": 1.5
         },
         "2": {
             "birthdate": "01-02-1998",
@@ -16,9 +21,13 @@
             "first_name": "John",
             "full_name": "John Doe",
             "last_name": "Doe",
-            "opponents": [],
-            "rank": 0,
-            "score": 0
+            "opponents": [
+                "Will Smith",
+                "Paul Jones",
+                "Paul Jones"
+            ],
+            "rank": 6,
+            "score": 1.5
         },
         "3": {
             "birthdate": "01-03-1998",
@@ -26,9 +35,13 @@
             "first_name": "Will",
             "full_name": "Will Smith",
             "last_name": "Smith",
-            "opponents": [],
-            "rank": 0,
-            "score": 0
+            "opponents": [
+                "John Doe",
+                "Bob Leponge",
+                "H\u00e9l\u00e8ne Desmoke"
+            ],
+            "rank": 3,
+            "score": 2.0
         },
         "4": {
             "birthdate": "01-04-1998",
@@ -36,9 +49,68 @@
             "first_name": "Jane",
             "full_name": "Jane Doe",
             "last_name": "Doe",
-            "opponents": [],
-            "rank": 0,
-            "score": 0
+            "opponents": [
+                "Bob Leponge",
+                "L\u00e9a Durand"
+            ],
+            "rank": 4,
+            "score": 2
+        },
+        "5": {
+            "birthdate": "01-08-1994",
+            "chess_id": "QA12345",
+            "first_name": "Paul",
+            "full_name": "Paul Jones",
+            "last_name": "Jones",
+            "opponents": [
+                "H\u00e9l\u00e8ne Desmoke",
+                "John Doe",
+                "John Doe"
+            ],
+            "rank": 8,
+            "score": 0.5
+        },
+        "6": {
+            "birthdate": "01-09-1992",
+            "chess_id": "CV12345",
+            "first_name": "L\u00e9a",
+            "full_name": "L\u00e9a Durand",
+            "last_name": "Durand",
+            "opponents": [
+                "Alex Dupuis",
+                "Jane Doe",
+                "Bob Leponge"
+            ],
+            "rank": 1,
+            "score": 4
+        },
+        "7": {
+            "birthdate": "01-10-1997",
+            "chess_id": "FR12345",
+            "first_name": "Alex",
+            "full_name": "Alex Dupuis",
+            "last_name": "Dupuis",
+            "opponents": [
+                "L\u00e9a Durand",
+                "H\u00e9l\u00e8ne Desmoke",
+                "Bob Leponge"
+            ],
+            "rank": 2,
+            "score": 3
+        },
+        "8": {
+            "birthdate": "01-11-1993",
+            "chess_id": "JL12345",
+            "first_name": "H\u00e9l\u00e8ne",
+            "full_name": "H\u00e9l\u00e8ne Desmoke",
+            "last_name": "Desmoke",
+            "opponents": [
+                "Paul Jones",
+                "Alex Dupuis",
+                "Will Smith"
+            ],
+            "rank": 7,
+            "score": 1.5
         }
     }
 }

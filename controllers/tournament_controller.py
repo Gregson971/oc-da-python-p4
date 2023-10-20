@@ -1,5 +1,6 @@
 import sys
 from datetime import datetime
+from controllers.report_controller import ReportController
 
 from controllers.round_controller import RoundController
 from controllers.player_controller import PlayerController
@@ -27,6 +28,8 @@ class TournamentController:
 
         TournamentService.save_tournament(self.tournament)
 
+        self.add_players()
+
     def get_tournament(self):
         """Get a tournament"""
         return self.tournament
@@ -35,6 +38,11 @@ class TournamentController:
         """Load a tournament from the database"""
         user_input = input("Enter tournament name: ")
         new_tournament = TournamentService.get_tournament(name=user_input)
+
+        if not new_tournament:
+            print("Tournament not found.")
+            return
+
         self.tournament = TournamentService.deserialize_tournament(new_tournament)
 
         print("Tournament loaded successfully.")
@@ -51,25 +59,25 @@ class TournamentController:
         for i in range(self.tournament.rounds_total):
             RoundController(self.view, self.tournament).start_round(i)
 
-        print("-------------------------\n" "End a tournament\n" "Here is the results:\n" "-------------------------")
         self.tournament.end_date = datetime.now().strftime("%d-%m-%Y %H:%M")
         print(f"END DATE: {self.tournament.end_date}")
 
         TournamentService.update_tournament(self.tournament)
 
-        self.add_players()
+        print("-------------------------\n" "End a tournament\n" "Here is the results:\n" "-------------------------")
+        ReportController(self.view, self.tournament).handle_reports()
 
     def add_players(self):
         """Add players to the tournament"""
         create_player_choice = self.view.display_create_player()
 
         if create_player_choice == "1":
-            PlayerController.create_player()
+            PlayerController.create_player(self)
             while len(self.tournament.players) < self.tournament.rounds_total * PLAYER_PER_MATCH:
                 create_player_choice = self.view.display_create_player()
 
                 if create_player_choice == "1":
-                    PlayerController.create_player()
+                    PlayerController.create_player(self)
                 elif create_player_choice == "2":
                     PlayerController.load_players()
                 elif create_player_choice == "3":

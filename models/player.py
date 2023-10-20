@@ -69,9 +69,8 @@ class PlayerService:
         players_bd = TinyDB("data/tournaments/players.json", sort_keys=True, indent=4, separators=(',', ': '))
         return players_bd.all()
 
-    def update_player(self, chess_id):
+    def update_player(player):
         """Method to update a player in the database"""
         players_bd = TinyDB("data/tournaments/players.json", sort_keys=True, indent=4, separators=(',', ': '))
-        serialized_player = self.serialize_player()
-        players_bd.update(serialized_player, Query().chess_id == chess_id)
-        print("Player updated successfully")
+        serialized_player = PlayerService.serialize_player(player)
+        players_bd.update(serialized_player, Query().chess_id == player.chess_id)

@@ -1,6 +1,7 @@
 import sys
 from datetime import datetime
 
+from models.player import PlayerService
 from models.tournament import Tournament, TournamentService
 from models.round import Round
 from models.match import Match
@@ -54,6 +55,10 @@ class RoundController:
             sorted_players = sorted(players, key=lambda player: player.rank, reverse=True)
             return list(zip(sorted_players[::2], sorted_players[1::2]))
 
+        elif self.tournament.current_round > self.tournament.rounds_total:
+            print(f"{self.tournament.name} is over.")
+            sys.exit()
+
         # Other rounds
         else:
             sorted_players = []
@@ -96,7 +101,7 @@ class RoundController:
                         break
 
                     # Check if player2 is already in player's opponents list
-                    if player2 in player.opponents:
+                    if player2.full_name in player.opponents:
                         y += 1
                         continue
                     else:
@@ -134,5 +139,7 @@ class RoundController:
         # Update rank
         for rank, player in enumerate(sorted_players, start=1):
             player.rank = rank
+
+            PlayerService.update_player(player)
 
         return players
