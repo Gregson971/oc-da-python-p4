@@ -1,9 +1,9 @@
 {
     "_default": {
         "1": {
-            "current_round": 1,
+            "current_round": 5,
             "description": "This is a test",
-            "end_date": null,
+            "end_date": "20-10-2023 11:12",
             "location": "Paris",
             "name": "Tournament 1",
             "players": [
@@ -13,9 +13,13 @@
                     "first_name": "Bob",
                     "full_name": "Bob Leponge",
                     "last_name": "Leponge",
-                    "opponents": [],
+                    "opponents": [
+                        "Jane Doe",
+                        "Will Smith",
+                        "Will Smith"
+                    ],
                     "rank": 1,
-                    "score": 1
+                    "score": 2.5
                 },
                 {
                     "birthdate": "01-02-1998",
@@ -23,9 +27,13 @@
                     "first_name": "John",
                     "full_name": "John Doe",
                     "last_name": "Doe",
-                    "opponents": [],
-                    "rank": 3,
-                    "score": 0
+                    "opponents": [
+                        "Will Smith",
+                        "Jane Doe",
+                        "Jane Doe"
+                    ],
+                    "rank": 4,
+                    "score": 0.5
                 },
                 {
                     "birthdate": "01-03-1998",
@@ -33,9 +41,13 @@
                     "first_name": "Will",
                     "full_name": "Will Smith",
                     "last_name": "Smith",
-                    "opponents": [],
-                    "rank": 4,
-                    "score": 0
+                    "opponents": [
+                        "John Doe",
+                        "Bob Leponge",
+                        "Bob Leponge"
+                    ],
+                    "rank": 2,
+                    "score": 2.5
                 },
                 {
                     "birthdate": "01-04-1998",
@@ -43,42 +55,127 @@
                     "first_name": "Jane",
                     "full_name": "Jane Doe",
                     "last_name": "Doe",
-                    "opponents": [],
-                    "rank": 2,
-                    "score": 1
+                    "opponents": [
+                        "Bob Leponge",
+                        "John Doe",
+                        "John Doe"
+                    ],
+                    "rank": 3,
+                    "score": 2.5
                 }
             ],
             "rounds": [
                 {
-                    "end_date": null,
+                    "end_date": "20-10-2023 11:11",
                     "matches": [
                         [
                             [
                                 "Bob Leponge",
-                                1
+                                2.5
                             ],
                             [
                                 "John Doe",
-                                0
+                                0.5
                             ]
                         ],
                         [
                             [
                                 "Will Smith",
-                                0
+                                2.5
                             ],
                             [
                                 "Jane Doe",
-                                1
+                                2.5
                             ]
                         ]
                     ],
                     "name": "Round 1",
-                    "start_date": "20-10-2023 00:26"
+                    "start_date": "20-10-2023 11:11"
+                },
+                {
+                    "end_date": "20-10-2023 11:12",
+                    "matches": [
+                        [
+                            [
+                                "Bob Leponge",
+                                2.5
+                            ],
+                            [
+                                "Jane Doe",
+                                2.5
+                            ]
+                        ],
+                        [
+                            [
+                                "John Doe",
+                                0.5
+                            ],
+                            [
+                                "Will Smith",
+                                2.5
+                            ]
+                        ]
+                    ],
+                    "name": "Round 2",
+                    "start_date": "20-10-2023 11:12"
+                },
+                {
+                    "end_date": "20-10-2023 11:12",
+                    "matches": [
+                        [
+                            [
+                                "Bob Leponge",
+                                2.5
+                            ],
+                            [
+                                "Will Smith",
+                                2.5
+                            ]
+                        ],
+                        [
+                            [
+                                "Jane Doe",
+                                2.5
+                            ],
+                            [
+                                "John Doe",
+                                0.5
+                            ]
+                        ]
+                    ],
+                    "name": "Round 3",
+                    "start_date": "20-10-2023 11:12"
+                },
+                {
+                    "end_date": "20-10-2023 11:12",
+                    "matches": [
+                        [
+                            [
+                                "Bob Leponge",
+                                2.5
+                            ],
+                            [
+                                "Will Smith",
+                                2.5
+                            ]
+                        ],
+                        [
+                            [
+                                "Jane Doe",
+                                2.5
+                            ],
+                            [
+                                "John Doe",
+                                0.5
+                            ]
+                        ]
+                    ],
+                    "name": "Round 4",
+                    "start_date": "20-10-2023 11:12"
                 }
             ],
             "rounds_total": 4,
-            "start_date": "20-10-2023 00:26"
+            "start_date": "20-10-2023 11:11"
         }
     }
 }

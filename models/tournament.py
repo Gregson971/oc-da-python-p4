@@ -100,6 +100,6 @@ class TournamentService:
         """Method to update a tournament in the database"""
         tournaments_bd = TinyDB("data/tournaments/tournaments.json", sort_keys=True, indent=4, separators=(',', ': '))
         serialized_tournament = TournamentService.serialize_tournament(tournament)
-        print(f"serialized_tournament: {serialized_tournament}")
+
         tournaments_bd.update(serialized_tournament, Query().name == tournament.name)
         print("Tournament updated successfully")
