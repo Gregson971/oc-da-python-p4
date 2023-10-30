@@ -69,3 +69,19 @@ python main.py
 ```sh
 flake8 --format=html --htmldir=flake-report
 ```
+
+![flake8-report](img-documentation/p4_flake8_report.png)
+
+## Options des menus
+
+### Menu principal
+
+![main-menu](img-documentation/p4_main_menu.png)
+
+### Menu de visualisation des rapports
+
+![report-menu](img-documentation/p4_report_menu.png)
+
+### Exemple de rapport : Liste des joueurs
+
+![report-example](img-documentation/p4_ex_list_player.png)
