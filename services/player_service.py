@@ -8,6 +8,8 @@ class PlayerService:
 
     def serialize_player(player):
         """Method to get a serialized player"""
+        if isinstance(player, dict):
+            return player
 
         return {
             "first_name": player.first_name,

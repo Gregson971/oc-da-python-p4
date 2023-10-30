@@ -6,6 +6,9 @@ class RoundService:
 
     def serialize_round(round):
         """Method to get a serialized round"""
+        if isinstance(round, dict):
+            return round
+
         serialized_matches = []
         for match in round.matches:
             serialized_match = MatchService.serialize_match(match)
