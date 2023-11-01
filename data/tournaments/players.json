@@ -1,19 +1,14 @@
 {
     "_default": {
         "1": {
-            "birthdate": "01-01-1998",
+            "birthdate": "01-02-1987",
             "chess_id": "AZ12345",
-            "first_name": "Bob",
-            "full_name": "Bob Leponge",
-            "last_name": "Leponge",
-            "opponents": [
-                "Jane Doe",
-                "Will Smith",
-                "L\u00e9a Durand",
-                "Alex Dupuis"
-            ],
-            "rank": 5,
-            "score": 1.5
+            "first_name": "Pierre",
+            "full_name": "Pierre Dupond",
+            "last_name": "Dupond",
+            "opponents": [],
+            "rank": 8,
+            "score": 1
         },
         "2": {
             "birthdate": "01-02-1998",
@@ -41,7 +36,7 @@
                 "H\u00e9l\u00e8ne Desmoke"
             ],
             "rank": 3,
-            "score": 2.0
+            "score": 3.0
         },
         "4": {
             "birthdate": "01-04-1998",
@@ -67,8 +62,8 @@
                 "John Doe",
                 "John Doe"
             ],
-            "rank": 8,
-            "score": 0.5
+            "rank": 7,
+            "score": 1.5
         },
         "6": {
             "birthdate": "01-09-1992",
@@ -96,7 +91,7 @@
                 "Bob Leponge"
             ],
             "rank": 2,
-            "score": 3
+            "score": 4
         },
         "8": {
             "birthdate": "01-11-1993",
@@ -111,6 +106,16 @@
             ],
             "rank": 7,
             "score": 1.5
+        },
+        "9": {
+            "birthdate": "01-02-1987",
+            "chess_id": "AZ12345",
+            "first_name": "Pierre",
+            "full_name": "Pierre Dupond",
+            "last_name": "Dupond",
+            "opponents": [],
+            "rank": 8,
+            "score": 1
         }
     }
 }

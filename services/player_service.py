@@ -56,3 +56,12 @@ class PlayerService:
         players_bd = TinyDB("data/tournaments/players.json", sort_keys=True, indent=4, separators=(',', ': '))
         serialized_player = PlayerService.serialize_player(player)
         players_bd.update(serialized_player, Query().chess_id == player.chess_id)
+
+    def reset_players(player):
+        """Method to reset the players database"""
+        players_bd = TinyDB("data/tournaments/players.json", sort_keys=True, indent=4, separators=(',', ': '))
+        serialized_player = PlayerService.serialize_player(player)
+        serialized_player.rank = 0
+        serialized_player.score = 0
+        serialized_player.opponents = []
+        players_bd.update(serialized_player, Query().chess_id == player.chess_id)

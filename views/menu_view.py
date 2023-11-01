@@ -52,7 +52,7 @@ class MenuView:
             "What do you want to do?\n"
             "-------------------------\n"
             "1. Start a round\n"
-            "3. Save and quit\n"
+            "2. Save and quit\n"
             "-------------------------"
         )
         return input("Choice: ")

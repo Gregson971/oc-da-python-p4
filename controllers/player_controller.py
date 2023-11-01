@@ -7,6 +7,8 @@ from services.player_service import PlayerService
 
 from views.menu_view import MenuView
 
+PLAYER_PER_MATCH = 2
+
 
 class PlayerController:
     def __init__(self, view: MenuView, tournament: Tournament):
@@ -61,7 +63,8 @@ class PlayerController:
         players = PlayerService.get_all_players()
 
         for player in players:
-            new_player = PlayerService.deserialize_player(player)
-            self.tournament.players.append(new_player)
+            if len(self.tournament.players) < self.tournament.rounds_total * PLAYER_PER_MATCH:
+                new_player = PlayerService.deserialize_player(player)
+                self.tournament.players.append(new_player)
 
         self.view.display_message(message="All players have been loaded.")

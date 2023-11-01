@@ -90,7 +90,8 @@ class TournamentController:
                 if create_player_choice == "1":
                     PlayerController.create_player(self)
                 elif create_player_choice == "2":
-                    PlayerController.load_players()
+                    PlayerController.load_players(self)
+                    self.start_tournament()
                 elif create_player_choice == "3":
                     self.start_tournament()
                 elif create_player_choice == "4":
