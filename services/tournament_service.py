@@ -70,3 +70,8 @@ class TournamentService:
 
         tournaments_bd.update(serialized_tournament, Query().name == tournament.name)
         print("Tournament updated successfully")
+
+    def tournament_exists(name):
+        """Method to check if a tournament exists"""
+        tournaments_bd = TinyDB("data/tournaments/tournaments.json", sort_keys=True, indent=4, separators=(',', ': '))
+        return tournaments_bd.search(Query().name == name)

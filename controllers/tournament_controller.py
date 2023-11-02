@@ -26,6 +26,10 @@ class TournamentController:
         location = tournament_informations["location"]
         description = tournament_informations["description"]
 
+        if TournamentService.tournament_exists(name):
+            self.view.display_message(message="Tournament already exists.")
+            return
+
         new_tournament = Tournament(name=name, location=location, players=[], rounds=[], description=description)
         self.tournament = new_tournament
 
