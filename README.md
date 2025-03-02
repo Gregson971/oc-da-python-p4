@@ -64,10 +64,10 @@ pip install -r requirements.txt
 python main.py
 ```
 
-7. Générer un rapport flake8-html
+7. Générer un rapport flake8
 
 ```sh
-flake8 --format=html --htmldir=flake-report
+flake8 --vv
 ```
 
 ![flake8-report](img-documentation/p4_flake8_report.png)
